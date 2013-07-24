@@ -405,7 +405,7 @@ public class LocketteBlockListener implements Listener {
 
 		// Hoppers from here.
 
-		if (type == Material.HOPPER.getId()) {
+		if (type == Material.HOPPER.getId() || type == Material.HOPPER_MINECART.getId()) {
 
 			checkBlock = block.getRelative(BlockFace.UP);
 			type = checkBlock.getTypeId();
