@@ -21,14 +21,12 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-
 import org.yi.acru.bukkit.PluginCore;
 
 
@@ -130,6 +128,7 @@ public class Lockette extends PluginCore{
 			playerListener.registerEvents();
 			prefixListener.registerEvents();
 			worldListener.registerEvents();
+			new LocketteHopperCartListener(this).registerEvents();
 			registered = true;
 		}
 		
@@ -395,7 +394,7 @@ public class Lockette extends PluginCore{
 		// Load in the alternate sign strings.
 		
 		altPrivate = strings.getString("alternate-private-tag");
-		if((altPrivate == null) || altPrivate.isEmpty() || (original && altPrivate.equals("Privé"))){
+		if((altPrivate == null) || altPrivate.isEmpty() || (original && altPrivate.equals("Privï¿½"))){
 			altPrivate = "Private";
 			strings.set("alternate-private-tag", altPrivate);
 		}
@@ -418,7 +417,7 @@ public class Lockette extends PluginCore{
 		altEveryone = "["+altEveryone+"]";
 		
 		altOperators = strings.getString("alternate-operators-tag");
-		if((altOperators == null) || altOperators.isEmpty() || (original && altOperators.equals("Opérateurs"))){
+		if((altOperators == null) || altOperators.isEmpty() || (original && altOperators.equals("Opï¿½rateurs"))){
 			altOperators = "Operators";
 			strings.set("alternate-operators-tag", altOperators);
 			stringChanged = true;

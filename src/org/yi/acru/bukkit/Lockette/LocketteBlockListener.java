@@ -18,7 +18,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
-
 import org.bukkit.event.block.BlockBreakEvent;
 //import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockPistonExtendEvent;
@@ -26,7 +25,6 @@ import org.bukkit.event.block.BlockPistonRetractEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.BlockRedstoneEvent;
 import org.bukkit.event.block.SignChangeEvent;
-
 import org.yi.acru.bukkit.PluginCore;
 
 public class LocketteBlockListener implements Listener {
@@ -405,7 +403,7 @@ public class LocketteBlockListener implements Listener {
 
 		// Hoppers from here.
 
-		if (type == Material.HOPPER.getId() || type == Material.HOPPER_MINECART.getId() || type == Material.POWERED_RAIL.getId() || type == Material.RAILS.getId() || type == Material.ACTIVATOR_RAIL.getId() || type == Material.DETECTOR_RAIL.getId() ){
+		if (type == Material.HOPPER.getId() ){
 
 			checkBlock = block.getRelative(BlockFace.UP);
 			type = checkBlock.getTypeId();
