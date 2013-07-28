@@ -5,7 +5,6 @@
 package com.ejfirestar.lockette.listeners;
 
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
 import org.bukkit.entity.minecart.HopperMinecart;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -19,16 +18,17 @@ public class HopperMinecartListener implements Listener {
 
    @EventHandler( priority = EventPriority.HIGHEST )
    public void onHopperCartTransaction( InventoryMoveItemEvent event ) {
-      if (event.isCancelled())
+      if (event.isCancelled()) {
          return;
-      InventoryHolder sourceholder = event.getSource().getHolder();
-      Block b = (( BlockState ) sourceholder).getBlock();
-      if (!Utils.isProtected(b))
-         return;
-      InventoryHolder destholder = event.getDestination().getHolder();
-      if (!(destholder instanceof HopperMinecart))
-         return;
-      event.setCancelled(true);
-   }
+      }
 
+      InventoryHolder source_holder = event.getSource().getHolder();
+      InventoryHolder dest_holder = event.getDestination().getHolder();
+
+      if (source_holder instanceof Block && dest_holder instanceof HopperMinecart) {
+         if (Utils.isProtected(( Block ) source_holder)) {
+            event.setCancelled(true);
+         }
+      }
+   }
 }
